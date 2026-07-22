@@ -1,3 +1,2 @@
-const expression = "1 + 1";
-
-eval(`console.log(${expression})`);
+const result = 1 + 1;
+console.log(result);
