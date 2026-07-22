@@ -9,6 +9,7 @@ describe("TestWithMockDataWithBranching component", () => {
       <TestWithMockDataWithBranching
         data={mockData}
         displayUnorderedList={true}
+        handleClick={jest.fn()}
       />
     );
 
@@ -20,6 +21,7 @@ describe("TestWithMockDataWithBranching component", () => {
       <TestWithMockDataWithBranching
         data={mockData}
         displayUnorderedList={false}
+        handleClick={jest.fn()}
       />
     );
 
@@ -37,7 +39,10 @@ describe("TestWithMockDataWithBranching component", () => {
       />
     );
 
-    await userEvent.click(screen.getByText(/mmcvanamy0@e-recht24.de/i));
+    await userEvent.click(
+      screen.getByText(/mmcvanamy0@e-recht24.de/i)
+    );
+
     expect(mockFn).toHaveBeenCalled();
   });
 });

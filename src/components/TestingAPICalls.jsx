@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { FetchData } from "../utils/Services";
+import { useEffect, useState } from "react";
+import { FetchData } from "../utils/services";
 
 const TestingAPICalls = () => {
   const [data, setData] = useState([]);
+
   useEffect(() => {
-    FetchData().then((data) => {
-      setData(data);
+    FetchData().then((responseData) => {
+      setData(responseData);
     });
-  });
+  }, []);
 
   return (
     <div>
       {data.map((item) => (
-        <div>{item.name}</div>
+        <div key={item.id || item.name}>{item.name}</div>
       ))}
     </div>
   );
